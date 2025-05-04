@@ -1,4 +1,4 @@
-# MEU PORTIFOLIO
+# MEU PORTIFÓLIO
 
 Uma breve descrição de como foi criado e quais ferramentas utilizadas.
 
