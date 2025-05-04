@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Profissional - Análise e Desenvolvimento de Sistemas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 32px;
+            height: calc(100% - 32px);
+            width: 2px;
+            background: #3b82f6;
+        }
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-white shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-blue-800">JC<span class="text-blue-500">Portfólio</span></div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link px-1 py-2 text-gray-700 hover:text-blue-600">Início</a>
+                    <a href="#about" class="nav-link px-1 py-2 text-gray-700 hover:text-blue-600">Sobre</a>
+                    <a href="#experience" class="nav-link px-1 py-2 text-gray-700 hover:text-blue-600">Experiência</a>
+                    <a href="#skills" class="nav-link px-1 py-2 text-gray-700 hover:text-blue-600">Habilidades</a>
+                    <a href="#projects" class="nav-link px-1 py-2 text-gray-700 hover:text-blue-600">Projetos</a>
+                    <a href="#contact" class="nav-link px-1 py-2 text-gray-700 hover:text-blue-600">Contato</a>
+                </nav>
+                <button id="mobileMenuButton" class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars text-2xl text-blue-800"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="mobile-menu md:hidden bg-white">
+                <div class="flex flex-col space-y-2 px-2 py-4">
+                    <a href="#home" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 rounded-lg">Início</a>
+                    <a href="#about" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 rounded-lg">Sobre</a>
+                    <a href="#experience" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 rounded-lg">Experiência</a>
+                    <a href="#skills" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 rounded-lg">Habilidades</a>
+                    <a href="#projects" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 rounded-lg">Projetos</a>
+                    <a href="#contact" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 rounded-lg">Contato</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white pt-32 pb-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Olá, eu sou <span class="text-blue-200">Jair Caetano</span></h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Analista de Sistemas & Suporte Técnico</h2>
+                <p class="text-lg mb-8 text-blue-100">Profissional formado em Análise e Desenvolvimento de Sistemas com experiência em suporte técnico e governança digital, buscando oportunidades para aplicar meus conhecimentos em tecnologia e gestão.</p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-white text-blue-800 px-6 py-3 rounded-lg font-medium hover:bg-blue-100 transition duration-300">Contate-me</a>
+                    <a href="#projects" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-800 transition duration-300">Ver Projetos</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                    <img src="https://i.ibb.co/tM5NVG13/Foto-Perfil.jpg" alt="Profile" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 text-blue-800">Sobre Mim</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
+                    <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-blue-100 shadow-lg">
+                        <img src="https://i.ibb.co/tM5NVG13/Foto-Perfil.jpg" alt="Profile" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Profissional de TI com Visão Estratégica</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Formado em Análise e Desenvolvimento de Sistemas pela Universidade FAM, com mais de 1 ano de experiência na área de tecnologia, atuando como Analista de Suporte e anteriormente como Assistente Administrativo de Governança Digital. Minha trajetória profissional me permitiu desenvolver tanto habilidades técnicas quanto de gestão, com foco em melhoria contínua de processos e satisfação do usuário final.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Minha experiência em governança digital me proporcionou uma visão holística dos processos organizacionais e como a tecnologia pode otimizá-los. Como analista de suporte, desenvolvi habilidades de resolução de problemas, comunicação eficaz e trabalho em equipe, sempre buscando a melhor solução para os desafios apresentados.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-user-graduate text-blue-600 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-semibold">Formação</h4>
+                                <p class="text-gray-600">Análise e Desenvolvimento de Sistemas</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-briefcase text-blue-600 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-semibold">Experiência</h4>
+                                <p class="text-gray-600">1+ anos na área de TI</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-blue-600 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-semibold">Localização</h4>
+                                <p class="text-gray-600">São Paulo, SP</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-blue-600 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <p class="text-gray-600">jairsilva1212@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 text-blue-800">Experiência Profissional</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-8">
+                    <!-- Experience 1 -->
+                    <div class="relative pl-12 timeline-item">
+                        <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center">
+                            <i class="fas fa-briefcase text-lg"></i>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-semibold text-gray-800">Analista de Suporte de TI</h3>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">06/2024 - 11/2024</span>
+                            </div>
+                            <h4 class="text-lg font-medium text-blue-600 mb-3">Mercadocar 
+                                O Shopping de Autopeças</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                                <li>➡️ Gestão de Acessos: Criação e remoção de acessos de usuários (onboarding e offboarding), garantindo que os processos sejam executados de maneira ágil e sem erros.</li>
+                                <li>➡️ Suporte a Hardware e Software: Realização de instalação, configuração e manutenção de hardware/Software, incluindo computadores, impressoras e acessórios.</li>
+                                <li>➡️ Atendimento ao Usuário: Fornecimento de suporte técnico aos usuários para resolução de problemas relacionados ao sistema operacional Windows e outros aplicativos.</li>
+                                <li>➡️ Suporte Remoto: Prestação de suporte remoto para unidades, proporcionando soluções rápidas e eficazes para problemas técnicos.</li>
+                                <li>➡️ Gestão de Chamados: Abertura, categorização e direcionamento de chamados através do GLPI, garantindo o cumprimento dos SLAs estabelecidos.</li>
+                                <li>➡️ Monitoramento de Problemas de Software/Hardware: Acompanhamento de tickets e resolução de problemas de software e hardware, garantindo a continuidade das operações.</li>
+                                <li>➡️ Suporte a Ambientes de Impressão: Manutenção e suporte a ambientes de impressão, assegurando a eficiência do uso dos equipamentos e a gestão de problemas relacionados.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience 2 -->
+                    <div class="relative pl-12 timeline-item">
+                        <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center">
+                            <i class="fas fa-briefcase text-lg"></i>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-semibold text-gray-800">Assistente Administrativo de Governança Digital</h3>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">11/2023 - 05/2024</span>
+                            </div>
+                            <h4 class="text-lg font-medium text-blue-600 mb-3">Mercadocar 
+                                O Shopping de Autopeças</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                                <li>➡️ Gestão de Estoque de TI: Controle rigoroso do estoque de equipamentos tecnológicos, com reposição eficiente utilizando o ERP eGestor.</li>
+                                <li>➡️ Suporte a Chamados: Auxílio no atendimento de chamados não respondidos e na escalabilidade dos tickets, garantindo a resolução dentro do prazo.</li>
+                                <li>➡️ Descarte de Equipamentos: Gerenciamento e controle de descarte de equipamentos obsoletos ou sucateados, com documentação adequada dos processos.</li>
+                                <li>➡️ Distribuição de Suprimentos: Responsável pela distribuição eficaz de suprimentos tecnológicos para as equipes internas, atendendo às necessidades de cada departamento.</li>
+                                <li>➡️ Organização de Estoque: Supervisionamento e organização do estoque de materiais de TI, mantendo a precisão e o controle sobre os recursos disponíveis.</li>
+                                <li>➡️ Monitoramento de Backlog de Chamados: Acompanhamento do backlog de chamados em andamento, garantindo que todos os tickets sejam atendidos de acordo com as prioridades.</li>
+                                <li>➡️ Elaboração de Relatórios: Produção de relatórios periódicos sobre o status de equipamentos, solicitações e problemas técnicos, para a gestão e melhorias dos processos.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience 3 -->
+                    <div class="relative pl-12">
+                        <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center">
+                            <i class="fas fa-briefcase text-lg"></i>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-semibold text-gray-800">Estagiário de Suporte Técnico</h3>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">07/2023 - 11/2023</span>
+                            </div>
+                            <h4 class="text-lg font-medium text-blue-600 mb-3">PROCON SP</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                                <li>➡️ Suporte Técnico: Atendimento e suporte físico e remoto aos usuários, incluindo a instalação de softwares e resolução de problemas em sistemas operacionais.</li>
+                                <li>➡️ Manutenção de Hardware: Execução de manutenção preventiva e corretiva de computadores, além da instalação de componentes e periféricos.</li>
+                                <li>➡️ Gestão de Redes: Suporte à manutenção da infraestrutura de rede, com foco na resolução de problemas lógicos e físicos.</li>
+                                <li>➡️ Administração de Banco de Dados: Auxílio nas atividades de administração, especificação e manutenção de bancos de dados, garantindo a integridade dos dados.</li>
+                                <li>➡️ Treinamento de Usuários: Condução de treinamentos para os usuários internos sobre o uso eficiente dos sistemas de TI.</li>
+                                <li>➡️ Aquisição de Equipamentos: Pesquisa e avaliação de fornecedores para aquisição de equipamentos e suprimentos de TI, buscando sempre as melhores soluções de custo-benefício.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 text-blue-800">Habilidades Técnicas</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <!-- Technical Skills -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-6 text-gray-800 flex items-center">
+                        <i class="fas fa-laptop-code text-blue-600 mr-3"></i> Habilidades Técnicas
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Suporte Técnico</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-blue-600 skill-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Gestão de Ativos</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-blue-600 skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Gestão de Chamados</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-blue-600 skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Manutenção de Hardware e Software</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-blue-600 skill-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Administração de Sistemas ERP/CRM</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-blue-600 skill-bar" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Professional Skills -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-6 text-gray-800 flex items-center">
+                        <i class="fas fa-chart-line text-blue-600 mr-3"></i> Habilidades Profissionais
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Atendimento ao Cliente</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-blue-600 skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Organização e Controle</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-blue-600 skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Comunicação</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-blue-600 skill-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Trabalho em Equipe</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-blue-600 skill-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Resolução de Problemas</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-blue-600 skill-bar" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tools & Technologies -->
+            <div class="mt-16 max-w-4xl mx-auto">
+                <h3 class="text-xl font-semibold mb-8 text-gray-800 text-center">Ferramentas & Tecnologias</h3>
+                <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6">
+                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg card-hover">
+                        <i class="fab fa-windows text-4xl text-blue-600 mb-2"></i>
+                        <span class="text-sm font-medium">Windows Server</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg card-hover">
+                        <i class="fas fa-database text-4xl text-blue-600 mb-2"></i>
+                        <span class="text-sm font-medium">SQL Server</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg card-hover">
+                        <i class="fab fa-microsoft text-4xl text-blue-600 mb-2"></i>
+                        <span class="text-sm font-medium">Office 365</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg card-hover">
+                        <i class="fab fa-jira text-4xl text-blue-600 mb-2"></i>
+                        <span class="text-sm font-medium">Jira</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg card-hover">
+                        <i class="fab fa-git-alt text-4xl text-blue-600 mb-2"></i>
+                        <span class="text-sm font-medium">Git</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg card-hover">
+                        <i class="fab fa-python text-4xl text-blue-600 mb-2"></i>
+                        <span class="text-sm font-medium">Python</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 text-blue-800">Projetos Destacados</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-desktop text-6xl text-blue-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Portal de Autoatendimento</h3>
+                        <p class="text-gray-600 mb-4">Desenvolvimento de portal para autoatendimento de chamados técnicos, reduzindo em 40% o volume de chamados diretos ao suporte.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">JavaScript</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">HTML/CSS</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">SQL Server</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                            Ver detalhes <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-chart-pie text-6xl text-blue-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Dashboard de Governança</h3>
+                        <p class="text-gray-600 mb-4">Criação de dashboard para monitoramento de indicadores de governança digital, proporcionando visibilidade em tempo real dos processos.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Power BI</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Python</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">ETL</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                            Ver detalhes <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-book text-6xl text-blue-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Base de Conhecimento</h3>
+                        <p class="text-gray-600 mb-4">Implementação de sistema de base de conhecimento para suporte técnico, reduzindo tempo de resolução de chamados em 30%.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">SharePoint</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">SEO</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">UX</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                            Ver detalhes <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 text-blue-800">Entre em Contato</h2>
+            
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-6 text-gray-800">Vamos conversar!</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Estou sempre aberto a novas oportunidades e colaborações. Se você tem um projeto interessante, uma vaga que se encaixe no meu perfil ou apenas quer trocar ideias sobre tecnologia, não hesite em entrar em contato.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Email</h4>
+                                <p class="text-gray-600">jairsilva1212@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Telefone</h4>
+                                <p class="text-gray-600">(11) 93150-6799</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Localização</h4>
+                                <p class="text-gray-600">São Paulo, SP - Brasil</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-semibold text-gray-800 mb-4">Redes Sociais</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://www.linkedin.com/in/jair-caetano-ti/" class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition duration-300" target="_blank">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/jaircaetano" class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition duration-300" target="_blank"><i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <form class="space-y-6" id="meuFormulario" action="https://formspree.io/f/mrbqpnkq" method="POST">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition duration-300" placeholder="Seu nome">
+                        </div>
+                    
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition duration-300" placeholder="seu@email.com">
+                        </div>
+                    
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Assunto</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition duration-300" placeholder="Qual o assunto?">
+                        </div>
+                    
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensagem</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition duration-300" placeholder="Sua mensagem..."></textarea>
+                        </div>
+                    
+                        <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-paper-plane mr-2"></i> Enviar Mensagem
+                        </button>
+                    </form>
+                    
+                    <script>
+                        document.getElementById('meuFormulario').addEventListener('submit', function(event) {
+                            // Impede o comportamento padrão do formulário (recarregar a página)
+                            event.preventDefault();
+                    
+                            // Obtém os valores dos campos do formulário
+                            const nome = document.getElementById('name').value;
+                            const email = document.getElementById('email').value;
+                            const assunto = document.getElementById('subject').value;
+                            const mensagem = document.getElementById('message').value;
+                    
+                            // Envia os dados para o Formspree (ou onde você estiver enviando)
+                            fetch('https://formspree.io/f/mrbqpnkq', {  // Substitua pelo seu endpoint do Formspree
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ nome, email, assunto, mensagem })
+                            })
+                            .then(response => {
+                                if (response.ok) {
+                                    // Limpa o formulário após o envio bem-sucedido
+                                    document.getElementById('name').value = '';
+                                    document.getElementById('email').value = '';
+                                    document.getElementById('subject').value = '';
+                                    document.getElementById('message').value = '';
+                                    alert('Mensagem enviada com sucesso!'); // Opcional: Mostra um alerta
+                                } else {
+                                    alert('Erro ao enviar a mensagem.'); // Opcional: Mostra um alerta de erro
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Erro:', error);
+                                alert('Erro ao enviar a mensagem.'); // Opcional: Mostra um alerta de erro
+                            });
+                        });
+                    </script>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-bold text-blue-400 mb-2">Jair Caetano</div>
+                    <p class="text-gray-400">Analista de Sistemas & Suporte Técnico</p>
+                </div>
+                
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="https://www.linkedin.com/in/jair-caetano-ti/" class="text-gray-400 hover:text-blue-400 transition duration-300" target="_blank">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="https://github.com/jaircaetano" class="text-gray-400 hover:text-blue-400 transition duration-300" target="_blank">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+                
+                <div class="text-gray-400 text-sm">
+                    &copy; 2025 Jair Caetano. Todos os direitos reservados.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            
+            // Change icon between bars and times
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                const icon = mobileMenuButton.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
